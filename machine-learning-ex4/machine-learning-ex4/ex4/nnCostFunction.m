@@ -83,20 +83,22 @@ J = -(1/m)*sum(s) + (lambda/(2*m))*(sum(sum(t1_reg.^2))+sum(sum(t2_reg.^2)));
 
 
 for i=1:m,
+	x = X(i,:); 
+    x = x(:);
 	vect = (mat == y(i,1));
 	delta3 = a3(:,i) - vect;
-	delta2 = Theta2'*(delta3.*sigmoidGradient(z2(:,i)));
+	delta2 = (Theta2'*delta3).*sigmoidGradient([1;Theta1 * x]);
 	delta2 = delta2(2:end);
-	Theta1_grad = Theta1_grad + delta2*X
-
-
-
-
-
-
-
-
-
+	Theta1_grad = Theta1_grad + delta2*(X(i,:));
+	Theta2_grad = Theta2_grad + delta3*(a2(i,:));
+end,
+t1 = Theta1;
+t2 = Theta2;
+%disp(size(t1));
+t1(:,1) = zeros(size(t1,1),1); 
+t2(:,1) = zeros(size(t2,1),1);
+Theta1_grad = (1/m)*Theta1_grad + (lambda/m)*t1;
+Theta2_grad = (1/m)*Theta2_grad + (lambda/m)*t2;
 
 
 
