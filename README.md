@@ -1,2 +1,2 @@
 # ML_coursera
-andrew_NG solutions
+andrew_NG machine learning coursera solutions
