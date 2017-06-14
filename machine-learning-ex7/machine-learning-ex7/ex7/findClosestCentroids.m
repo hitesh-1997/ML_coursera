@@ -21,6 +21,21 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+for i=1:size(X,1),
+	for j=1:K,
+		vect = X(i,:) - centroids(j,:);
+		value = sum(vect.^2);
+		if j==1,
+			min = value;
+			min_index = j;
+		end,
+		if value < min,
+			min = value;
+			min_index = j;
+		end,
+	end,
+	idx(i) = min_index;
+end,
 
 
 

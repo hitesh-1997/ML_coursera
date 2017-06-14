@@ -19,7 +19,7 @@
 %
 
 %% Initialization
-clear ; close all; clc
+%clear ; close all; clc
 
 %% ================= Part 1: Find Closest Centroids ====================
 %  To help you implement K-Means, we have divided the learning algorithm 
@@ -106,7 +106,7 @@ pause;
 fprintf('\nRunning K-Means clustering on pixels from an image.\n\n');
 
 %  Load an image of a bird
-A = double(imread('bird_small.png'));
+A = double(imread('lmb.jpg'));
 
 % If imread does not work for you, you can try instead
 %   load ('bird_small.mat');
